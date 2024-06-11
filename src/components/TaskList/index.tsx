@@ -68,7 +68,7 @@ const TaskList = (props: Props) => {
 			/>
 			<Grid container rowSpacing={5} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
 				{taskList.map((el) => (
-					<Grid id={el.id} item xs={3}>
+					<Grid key={el.id} item xs={3}>
 						<TaskElement
 							editHandler={editHandler}
 							deleteHandler={deleteHandler}
