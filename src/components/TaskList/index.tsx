@@ -1,16 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {
-	Grid,
-	Typography,
-	Card,
-	CardContent,
-	CardActions,
-	Button,
-	Box,
-	Stack,
-} from "@mui/material";
+import { Grid, Box } from "@mui/material";
 import TaskApp, { Task } from "../../TaskApp";
 import Form from "../Form/Form";
+import TaskElement from "./TaskElement";
 
 type Props = {
 	tasks: Task[];
@@ -90,88 +82,6 @@ const TaskList = (props: Props) => {
 				))}
 			</Grid>
 		</Box>
-	);
-};
-
-type TaskElementProps = {
-	title: string;
-	description: string;
-	date: string;
-	status: string;
-	id: string;
-	deleteHandler: (id: string) => void;
-	editHandler: (
-		title: string,
-		description: string,
-		date: string,
-		status: string,
-		id: string
-	) => void;
-};
-
-const TaskElement = (props: TaskElementProps) => {
-	const getStatusColor = (): string => {
-		let statusColor = "";
-		switch (props.status) {
-			case "To Do":
-				statusColor = "#6A5ACD";
-				break;
-
-			case "In Process":
-				statusColor = "#FFFF33";
-				break;
-
-			default:
-				statusColor = "#32CD32";
-				break;
-		}
-
-		return statusColor;
-	};
-
-	return (
-		<Card sx={{ minHeight: 225, textAlign: "left" }}>
-			<CardContent>
-				<Typography fontWeight={700} gutterBottom variant="h5" component="div">
-					{props.title}
-				</Typography>
-				<Stack direction={"row"} justifyContent={"space-between"}>
-					<Typography fontWeight={500} variant="caption" gutterBottom>
-						Due Date: {props.date}
-					</Typography>
-					<Typography
-						fontWeight={700}
-						color={getStatusColor()}
-						variant="caption"
-						gutterBottom
-					>
-						{props.status}
-					</Typography>
-				</Stack>
-				<Typography variant="body2" color="text.secondary">
-					{props.description}
-				</Typography>
-			</CardContent>
-			<CardActions sx={{ marginBottom: 0 }}>
-				<Button
-					onClick={() =>
-						props.editHandler(
-							props.title,
-							props.description,
-							props.date,
-							props.status,
-							props.id
-						)
-					}
-					size="small"
-				>
-					Edit
-				</Button>
-				<Button onClick={() => props.deleteHandler(props.id)} size="small">
-					Delete
-				</Button>
-			</CardActions>
-		</Card>
 	);
 };
 

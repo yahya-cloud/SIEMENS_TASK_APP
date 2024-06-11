@@ -33,7 +33,7 @@ const TaskElement = (props: TaskElementProps) => {
 				break;
 
 			case "In Process":
-				statusColor = "#FFFF33";
+				statusColor = "#8B8000";
 				break;
 
 			default:

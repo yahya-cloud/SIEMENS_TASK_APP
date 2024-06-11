@@ -76,7 +76,7 @@ const Main = () => {
 				formHandler={formHandler}
 				closeHandler={handleClick}
 				show={open}
-        btnText="Add Task"
+				btnText="Add Task"
 			/>
 
 			<TaskList tasks={taskListData} />

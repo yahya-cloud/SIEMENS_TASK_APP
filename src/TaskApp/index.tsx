@@ -28,14 +28,9 @@ export class Task {
 		this.status = data.status;
 	}
 
-	toString() {
-		return `${this.status ? "[Completed]" : "[Not Completed]"} ${
-			this.description
-		}`;
-	}
 }
 
-class ToDoListApp {
+class TaskListApp {
 	tasks: Map<string, Task> = new Map<string, Task>();
 	length: number = 0;
 
@@ -105,7 +100,7 @@ type Data = {
 };
 
 // Simulate user interaction
-const app = new ToDoListApp();
+const app = new TaskListApp();
 app.addDummyTasks();
 
 export default app;
