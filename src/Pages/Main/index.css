@@ -1,0 +1,8 @@
+.main_container {
+	position: relative;
+}
+
+.btn_container {
+    position: absolute;
+    right: 0;
+}
