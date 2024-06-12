@@ -27,7 +27,6 @@ export class Task {
 		this.date = data.date;
 		this.status = data.status;
 	}
-
 }
 
 class TaskListApp {
@@ -42,13 +41,11 @@ class TaskListApp {
 		const id = this.generateId();
 		this.tasks.set(id, new Task(description, status, title, date, id));
 		this.length++;
-		console.log(`Task added with ID: ${id}`);
 	}
 
 	deleteTask(id: string) {
 		if (this.tasks.delete(id)) {
 			this.length--;
-			console.log("Task deleted.");
 		} else {
 			console.log("Invalid task ID.");
 		}
@@ -65,7 +62,6 @@ class TaskListApp {
 			console.log("Invalid task ID.");
 		} else {
 			task.setData(newData);
-			console.log("Task edited.");
 		}
 	}
 
